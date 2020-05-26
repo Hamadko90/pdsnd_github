@@ -1,10 +1,10 @@
 ### Date created
 5/26/2020
 ### Project Title
-Replace the Project Title
+bikeshare project
 
 ### Description
-Describe what your project is about and what it does
+filtering data for each cities for the bikeshare
 
 ### Files used
 Include the files used

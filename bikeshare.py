@@ -63,29 +63,29 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+    #use pandas library to read the csv files
     df = pd.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
-    
+
+
     df['month'] = df['Start Time'].dt.month
     df['hour'] = df['Start Time'].dt.hour
     MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 
-    if month != 'all':                            
+    if month != 'all':
         month = MONTHS.index(month)
-        
+
         df = df.loc[df['month'] == month]
-                                      
+
  # filter by day of week if applicable
-                                      
+
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     if day != 'all':
-        
+
         df = df.loc[df['day_of_week'] == day.title()]
-                                      
+
     return df
 
 
@@ -100,9 +100,9 @@ def time_stats(df):
     # TO DO: display the most common day of week
     common_day_of_week = df['day_of_week'].mode()[0]
     print("The most common day of week is: " + common_day_of_week)
-    
-   
-    
+
+
+
 
     # TO DO: display the most common start hour
     common_start_hour = df['hour'].mode()[0]
@@ -160,10 +160,10 @@ def trip_duration_stats(df):
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
-    
+
 
     print('\nCalculating User Stats...\n')
-    
+
     start_time = time.time()
     # TO DO: Display counts of user types
     users = df['User Type'].str.count('User').sum()
@@ -171,7 +171,7 @@ def user_stats(df):
     print('\nCount of users are {}\n'.format(users))
     print('\nCount of customers are {}\n'.format(customers))
 
-    
+
     # TO DO: Display counts of gender
     if('Gender' in df):
      gender = df['Gender'].value_counts()
@@ -182,15 +182,15 @@ def user_stats(df):
         earliest_birth = df ['Birth Year'].min()
         recent_birth = df['Birth Year'].max()
         common_birth = df['Birth Year'].mode()[0]
-        print('Earliest year of birth is: {}\n'.format(earliest_birth)) 
+        print('Earliest year of birth is: {}\n'.format(earliest_birth))
         print('Recent year of birth is: {}\n'.format(recent_birth))
         print('Most common year of birth is {}\n'.format(common_birth))
-    
+
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def display_data(df):
 
     print(df.head())
@@ -201,8 +201,8 @@ def display_data(df):
             return
         next = next + 5
         print(df.iloc[next:next+5])
-        
-        
+
+
 
 
 def main():

@@ -179,6 +179,7 @@ def user_stats(df):
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if('Birth Year' in df):
+        #this code will display the most earliest birthdays
         earliest_birth = df ['Birth Year'].min()
         recent_birth = df['Birth Year'].max()
         common_birth = df['Birth Year'].mode()[0]

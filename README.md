@@ -13,4 +13,4 @@ washington.csv
 bikeshare.py
 
 ### Credits
-Alrajhi Academy
+Alrajhi Academy and Udacity

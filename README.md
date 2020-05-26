@@ -4,7 +4,7 @@
 bikeshare project
 
 ### Description
-filtering data for each cities for the bikeshare
+filtering data for each cities for the bikeshare using python using panda and numpy
 
 ### Files used
 chicago.csv
